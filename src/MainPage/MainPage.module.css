@@ -1,0 +1,21 @@
+.outlet {
+    margin-top: 6.2rem;
+}
+
+@media (min-width: 768px) and (max-width: 808px){
+    .outlet {
+        padding-top: 7rem;
+    }
+}
+
+@media (min-width: 808px) and (max-width: 898px) {
+    .outlet {
+        padding-top: 9.5rem;
+    }
+}
+
+@media (max-width: 768px){
+    .outlet {
+        padding-top: 0rem;
+    }
+}

@@ -1,0 +1,241 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 100%;
+    margin-inline: auto;
+}
+
+/* Navbar styles */
+.navContainer {
+    background-color: #5B9F6F;
+    max-width: 1200px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+}
+
+.navbar .logo {
+    flex-basis: 60%;
+    width: clamp(5.4rem, 5vw, 7rem);
+    margin-right: 1vw;
+}
+
+.searchbar {
+    width: 100%;
+}
+
+.search {
+    padding: 9px 20px;
+    border-radius: 30px;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    width: 100%;
+    box-shadow: 1px 5px 6px rgba(0,0,0,0.5);
+}
+
+.search:focus {
+    outline-offset: 1vmin;
+}
+
+.search:focus ~ .navbarLinks {
+    display: none;
+}
+
+
+.search::placeholder {
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: initial;
+    letter-spacing: 1px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(10px, 5vw, 15px);
+    font-weight: 900;
+    padding: 1rem;
+    transition: all 0.9s ease;
+}
+
+.navbar a:hover {
+    background: #57545433;
+    border-radius: 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px 2rem;
+    background-color: #2e3f33;
+    width: 100vw;
+    height: 100px;
+    
+}
+
+.navbarBrand {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.navbarLinks {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    background-color: #5B9F6F; 
+    gap: 0px;
+    z-index: 1000;
+    background-color: #9f5b5b00;
+}
+
+.navbarLinks li {
+    padding: 0 10px;
+}
+
+
+
+/* Dropdown styles */
+.dropdownContent {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #eb1717;
+    width: 9rem;
+    list-style-type: none;
+    padding: 0;
+    position: absolute;
+    z-index: 1000;
+}
+
+.dropdownContent li {
+    padding: 10px;
+    transition: all 0.9s ease;
+}
+
+.dropdown {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+.dropdown:hover .dropdownContent {
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1002;
+    padding: 1rem 0;
+    background: #000;
+    border: 1px solid #ddd;
+}
+
+
+
+/* Responsive styles can be added similarly */
+
+/* Hamburger styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    z-index: 10;
+}
+
+
+
+
+/* Ensure that the closing icon is visible */
+.closingX {
+    cursor: pointer;
+    color: #fff;
+    font-size: 24px;
+    margin-left: 15px;
+}
+
+@media (min-width: 769px) and (max-width: 898px) {
+    .navbar {
+        flex-direction: column;
+        padding-bottom: 250px;
+    }
+
+    .dropdown:hover .dropdownContent {
+        right: 6rem;
+        height: 30vh;
+    }
+
+
+    .navbarBrand .logo {
+        width: 10rem;
+    }
+}
+
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        position: static;
+    }
+
+    .navbar .logo {
+        width: 5rem
+    }
+
+    .hamburger {
+        display: flex;
+        align-items: center;
+    }
+
+    .navbarLinks {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        padding: 2rem 1rem;
+        background-color:#000000fd;
+        position: absolute;
+        top: 6.2rem;
+        right: 0;
+        z-index: 1001;
+    }
+
+
+    .dropdown:hover .dropdownContent {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+        padding: 0;
+        background-color:#00000094;
+        border: 1px solid #0f0f0f;
+        top: 0;
+        left: -145px;
+        bottom: 0;
+    }
+
+}
