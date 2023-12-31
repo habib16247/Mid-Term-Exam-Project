@@ -1,15 +1,14 @@
-import React from 'react'
-import NavBar from './NavBar/NavBar'
-import AppStyle from "./NavBar/Navbar.module.css"
-import G from './NavBar/g'
-import MainPage from './MainPage/MainPage'
+import React, { useEffect } from 'react';
+import MainPage from './MainPage/MainPage';
+import AppStyle from "./NavBar/Navbar.module.css";
 
 const App = () => {
+  
   return (
     <div className={AppStyle.container}>
       <MainPage />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

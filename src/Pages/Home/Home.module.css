@@ -1,5 +1,7 @@
 .homeContainer {
-    background-image: url("https://www.isahalal.com/application/files/9315/6389/6564/hero-orange-arrows.jpg");
+    display: flex;
+    justify-content: space-around;
+    background: #263d4b;
     width: 100%;
     min-height: calc(100vh - 100px);
     height: fit-content;
@@ -8,10 +10,9 @@
     background-repeat: no-repeat;
     background-position: center;
     padding-inline: 5vw;
-    z-index: -1;
     position: relative;
-    box-shadow: 58px 38px 81px rgba(0,0,0,.8) inset;
 }
+
 
 
 
@@ -22,7 +23,7 @@
 .h1 {
     font-size: clamp(30px, 5vw, 42px);
     color: #fff;
-    text-shadow: 5px 5px 10px rgba(0,0,0,.2);
+    text-shadow: 5px 5px 10px rgba(28, 250, 213, 0.2);
     font-family: 'Lato',sans-serif;
     font-weight: 900;
     padding-top: 50px;
@@ -53,15 +54,36 @@
     position: relative;
     overflow: hidden;
     border-left: 6px solid #dfdd1e;
-    box-shadow: 4px 4px 8px rgba(0,0,0,.2)
+    box-shadow: 4px 4px 8px rgba(0,0,0,.2);
+    z-index: 5;
+    transition: all 0.4s linear;
 }
 
 .certiBtn:hover {
-    background: #c72a2a;
-    color: #000;
+    background: rgb(100, 92, 92);
 }
 
+.jobBg, .h1, .certiBtn, .lead {
+    animation: 2s linear 0s infinite alternate animating-multiple-properties;
+}
+
+@keyframes animating-multiple-properties {
+    from {
+      transform: translateY(5vh);
+      filter: brightness(75%);
+      transform: scale(1.02);
+    }
+    to {
+      transform: translateY(0);
+      transform: scale(1);
+    }
+  }
+
 @media (max-width: 868px) {
+    .homeContainer {
+        min-height: calc(100vh - 500px);
+        padding-top: 5rem;
+    }
     .text{
         width: 60vw;
     }
@@ -70,6 +92,11 @@
 
 
 @media (max-width: 768px) {
+
+    .homeContainer {
+        flex-direction: column;
+        padding-top: 0;
+    }
     
     .text {
         width: 90vw;
