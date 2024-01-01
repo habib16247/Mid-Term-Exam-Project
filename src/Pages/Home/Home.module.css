@@ -1,7 +1,26 @@
+@font-face {
+    font-family: FiraSans;
+    src: url(../../assets/fonts/FiraSans-SemiBold.ttf);
+}
+
+
+@font-face {
+    font-family: FiraSans2;
+    src: url(../../assets/fonts/FiraSans-Light.ttf);
+}
+
+.content {
+    background-color: #34b7f1;
+    padding-inline: 5vw;
+    position: relative;
+}
+
+
+
 .homeContainer {
     display: flex;
     justify-content: space-around;
-    background: #263d4b;
+    background: transparent;
     width: 100%;
     min-height: calc(100vh - 100px);
     height: fit-content;
@@ -9,12 +28,8 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    padding-inline: 5vw;
     position: relative;
 }
-
-
-
 
 .text {
     width: 35vw;
@@ -22,7 +37,7 @@
 
 .h1 {
     font-size: clamp(30px, 5vw, 42px);
-    color: #fff;
+    color: rgb(255,255,255);
     text-shadow: 5px 5px 10px rgba(28, 250, 213, 0.2);
     font-family: 'Lato',sans-serif;
     font-weight: 900;
@@ -63,14 +78,32 @@
     background: rgb(100, 92, 92);
 }
 
-.jobBg, .h1, .certiBtn, .lead {
-    animation: 2s linear 0s infinite alternate animating-multiple-properties;
+/* Styles for the text animation */
+.text-animation {
+    transition: transform 0.3s ease-in-out;
+}
+
+.text:hover .text-animation {
+    transform: translateY(-10px); /* Moves the text up by 10px when hovered */
+}
+
+/* Styles for the image animation */
+.img-animation {
+    transition: transform 0.3s ease-in-out;
+}
+
+.jobBg:hover .img-animation {
+    transform: scale(1.1); /* Scales up the image by 10% when hovered */
+}
+
+
+.jobBg, .h1, .certiBtn, .lead, .picDemo  {
+    animation: 1s linear 0s infinite alternate animating-multiple-properties;
 }
 
 @keyframes animating-multiple-properties {
     from {
       transform: translateY(5vh);
-      filter: brightness(75%);
       transform: scale(1.02);
     }
     to {
@@ -119,3 +152,234 @@
     }
 }
 
+
+.trustedSecction {
+    margin: 0;
+    text-align: center;
+    padding-block: 2rem;
+    background: rgba(0,0,0,.2);
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.trustHead{
+    margin-bottom: 1rem;
+    padding-inline: 2rem;
+    font-size: clamp(10px, 5vw, 22px);
+    color: #fff;
+    font-family: 'Lato',sans-serif;
+    font-weight: 900;
+}
+
+.trustedCompany {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+
+.company:hover {
+    transform: scale(1.2);
+}
+
+.Clogo{
+    width: 4rem;
+    opacity: 0.5;
+    border-radius: 13px;
+    -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.Clogo:hover {
+    opacity: 1;
+}
+
+
+.jobSeeker, .employers {
+    text-align: center;
+    margin-top: 4rem;
+    background: rgba(79, 98, 117, 0.1);
+    border-radius: 20px;
+    padding: 2rem 0;
+}
+
+.seekerHead, .employHead {
+    font-family: FiraSans;
+    font-style: normal;
+    margin-bottom: 5rem;
+}
+
+.textIntro {
+    width: 25rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.textHead, .jobHead {
+    font-family: FiraSans;
+    font-size: 2rem;
+}
+
+.textInfo, .textJobInfo {
+    font-family: FiraSans2;
+    font-weight: 500;
+}
+
+.deenCompro, .jobFindInfo {
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.picDemo {
+    width: 400px;
+}
+
+.searchJob, .postJob {
+    text-decoration: underline;
+}
+
+
+ @media (max-width: 868px) {
+    .deenCompro, .jobFindInfo {
+        gap: 5rem;
+        padding-inline: 2rem;
+    }
+}
+
+
+
+
+
+@media (max-width: 768px) {
+    .deenCompro, .jobFindInfo {
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .textIntro {
+        width: 20rem;
+    }
+
+    .seekerHead, .employHead {
+        margin-bottom: 2rem;
+    }
+
+    .picDemo {
+        width: 300px;
+    }
+
+    .reviews {
+        padding: 1rem;
+    }
+}
+
+.reviews {
+    text-align: center;
+    padding: 5rem;
+}
+
+.reviewText {
+    margin-inline: auto;
+    max-width: 700px;
+    font-size: 1.4rem;
+    color: #fefeff;
+    line-height: 2rem;
+    font-weight: 900;
+    font-family: FiraSans2;
+    margin-bottom: 20px;
+}
+
+.reviewer {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    color: #0c0b0b;
+    font-family: FiraSans2;
+}
+
+.jobCompany {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-weight: 600;
+    color: #252525;
+    font-family: FiraSans2;
+}
+
+
+.startHiring {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    background: rgba(77, 94, 110, 0.233);
+    padding: 2rem 0;
+}
+
+
+.subcribtion {
+    background-image: url("https://signs.org/wp-content/uploads/2022/10/City-Facts.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    margin-inline: auto;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.w1 {
+    backdrop-filter: blur(2px);
+    padding: 2rem 6rem;
+}
+
+
+.hireText {
+    font-size: 1.45rem;
+    line-height: 2.25rem;
+    font-family: FiraSans2;
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: -.025em;
+    color: #fff;
+}
+
+.convence {
+   tab-size: 4;
+   font-size: 1rem; 
+   font-weight: 600px;
+   font-family: FiraSans2; 
+}
+
+
+.subscribeInputBtn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-inline: auto;
+    margin-top: 0.5rem;
+    height: 2.5rem;
+}
+
+.subInput {
+    padding: 5px 1rem;
+    border: 0;
+    border-radius: 5px;
+}
+
+.subBtn {
+    padding: 5px 1rem;
+    border: 0;
+    border-radius: 5px;
+    font-weight: 800;
+    color: #837878;
+} 
