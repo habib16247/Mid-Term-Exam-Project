@@ -118,7 +118,7 @@ const Home = () => {
       </p>
       
       <div className={styles.subscribeInputBtn}>
-        <input type="text" className={styles.subInput}/>
+        <input type="text" placeholder='Enter your email' className={styles.subInput}/>
         <button className={styles.subBtn}>
           subscribe
         </button>
