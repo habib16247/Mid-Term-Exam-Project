@@ -1,22 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
 import login from "./Sign.module.css"
+import { AuthProvider } from '../../ContextAPI/ContextProvider'
 
 
 const Signup = () => {
+  const {formData, handleChange, handleSubmit} = useContext(AuthProvider)
   return (
     <div className={login.loginContainer}>
     
       <h2 className={login.title}>Sign Up</h2>
-      <form className={login.form} /*onSubmit={handleSubmit}*/>
+      <form className={login.form} onSubmit={handleSubmit}>
         <div className={login.formGroup}>
           <label className={login.label}>Username:</label>
           <input
             className={login.input}
             type="text"
             name="username"
-            // value={formData.username}
-            // onChange={handleChange}
+            value={formData.username}
+            onChange={handleChange}
             required
           />
         </div>
@@ -26,8 +28,8 @@ const Signup = () => {
             className={login.input}
             type="email"
             name="email"
-            // value={formData.email}
-            // onChange={handleChange}
+            value={formData.email}
+            onChange={handleChange}
             required
           />
         </div>
@@ -37,8 +39,8 @@ const Signup = () => {
             className={login.input}
             type="password"
             name="password"
-            // value={formData.password}
-            // onChange={handleChange}
+            value={formData.password}
+            onChange={handleChange}
             required
           />
         </div>
@@ -48,8 +50,8 @@ const Signup = () => {
             className={login.input}
             type="password"
             name="confirmPassword"
-            // value={formData.confirmPassword}
-            // onChange={handleChange}
+            value={formData.confirmPassword}
+            onChange={handleChange}
             required
           />
         </div>
@@ -161,7 +163,7 @@ const Signup = () => {
             </svg>
           </a>
           <a
-            onClick={() => SignUpHandler(TwitterSignIn)}
+            // onClick={() => SignUpHandler(TwitterSignIn)}
             className={login.link}
             href="#facebook"
           >
@@ -186,11 +188,11 @@ const Signup = () => {
         </div>
       </form>
       <div className={login.backB}>
-        <button className={login.btn} onClick={() => navigate(-1)}>
+        <button className={login.btn} /*onClick={() => navigate(-1)}*/>
           Back
         </button>
         <span style={{ color: "red" }}>Or</span>
-        <button className={login.btn} onClick={() => navigate("/")}>
+        <button className={login.btn} /*onClick={() => navigate("/")}*/ >
           Go Home
         </button>
       </div>
