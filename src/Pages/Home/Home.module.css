@@ -94,13 +94,13 @@
 
 
 
-  .jobBg, .picDemo  {
+  .jobBg, .picDemo, .Clogo, .anim  {
     animation: 2s linear 0s infinite alternate up-down;
   }
   
   @keyframes up-down {
     from {
-      transform: translateY(3vh) scale(1.04);
+      transform: translateY(2vh) scale(1.04);
     }
     to {
       transform: translateY(0) scale(1);

@@ -21,23 +21,23 @@ const Home = () => {
       <div className={styles.trustedCompany}>
         <div className="company">
           <img className={styles.Clogo} src="https://www.muslimjobs.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdhobrv2dy%2Fimage%2Fupload%2Fv1671735018%2Fcompany-logos%2Fmuslimaid.jpg&w=48&q=75" alt="" />
-          <p style={{color: "#fff"}}>Tarteel AI</p>
+          <p className={styles.anim} style={{color: "#fff"}}>Tarteel AI</p>
         </div>
         <div className="company">
           <img className={styles.Clogo} src="https://www.muslimjobs.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdhobrv2dy%2Fimage%2Fupload%2Fv1671735399%2Fcompany-logos%2Ftarteel-ai.png&w=48&q=75" alt="" />
-          <p style={{color: "#fff"}}>MuslimAid</p>
+          <p className={styles.anim} style={{color: "#fff"}}>MuslimAid</p>
         </div>
         <div className="company">
           <img className={styles.Clogo} src="https://www.muslimjobs.io/_next/image?url=https%3A%2F%2Fimagedelivery.net%2F3eLxm_4Kl53UF8z5FejLxw%2Fe8d7a3d3-4580-4308-edef-7ba99b848600%2Flogo&w=48&q=75" alt="" />
-          <p style={{color: "#fff"}}>NZF Worldwide</p>
+          <p className={styles.anim} style={{color: "#fff"}}>NZF Worldwide</p>
         </div> 
         <div className="company">
           <img className={styles.Clogo} src="https://www.muslimjobs.io/_next/image?url=https%3A%2F%2Fimagedelivery.net%2F3eLxm_4Kl53UF8z5FejLxw%2Fa5f8ce49-f3ad-4a59-a534-cece2c49c300%2Flogo&w=48&q=75" alt="" />
-          <p style={{color: "#fff"}}>Takadao</p>
+          <p className={styles.anim} style={{color: "#fff"}}>Takadao</p>
         </div>
         <div className="company">
           <img className={styles.Clogo} src="https://www.muslimjobs.io/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdhobrv2dy%2Fimage%2Fupload%2Fv1671734996%2Fcompany-logos%2Fislamic-relief-usa.jpg&w=48&q=75" alt="" />
-          <p style={{color: "#fff"}}>Islamic Relief</p>
+          <p className={styles.anim} style={{color: "#fff"}}>Islamic Relief</p>
         </div>       
         
       </div>

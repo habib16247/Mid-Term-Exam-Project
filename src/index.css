@@ -5,8 +5,15 @@
 }
 
 ul a.active{
-    color: rgb(255, 147, 7);
+    color: rgb(255, 147, 7) !important;
+    text-decoration: underline !important;
 }
+
+ul a.active:hover{
+    text-decoration: underline !important;
+}
+
+
 
 
 ::-webkit-scrollbar {

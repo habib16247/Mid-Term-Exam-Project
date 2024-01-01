@@ -1,0 +1,123 @@
+
+/* Login.css */
+
+.loginContainer {
+    max-width: 450px;
+    margin: 2rem auto;
+    padding: 2.1rem;
+    border-radius: 26px;
+    box-shadow: 0px 1px 22px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    border: 0;
+    background: #f9f9f9;
+  }
+  
+  .title {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: underline;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    margin-bottom: 5px;
+  }
+  
+  .input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
+  .button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #85878a;
+  }
+
+  
+  .backBtn {
+    width: 11rem;
+    height: 2rem;
+    font-size: 1rem;
+    background: aquamarine;
+    color: ghostwhite;
+    font-weight: bold;
+    border: 0;
+    margin-top: 3rem;
+}
+
+
+.link:hover {
+    background: transparent;
+}
+
+.auth {
+    width: 4rem;
+    padding: 0;
+    border-radius: 50%;
+}
+
+
+.authentication {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+a.btgh {
+    background: black;
+    width: 100px;
+    margin: auto;
+    position: absolute;
+    bottom: 0px;
+}
+
+.backLog {
+    font-size: 30px;
+    background: #000;
+    border: 0;
+    color: #fff;
+}
+.e404 {
+    display: flex;
+    justify-content: center;
+}
+
+
+.calculation {
+    width: 13rem;
+}
+
+
+img.phoneI {
+    width: 6rem;
+}

@@ -1,5 +1,6 @@
 /* Basic Reset */
 * {
+    list-style: none;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -39,11 +40,10 @@
     font-size: 19px;
     font-weight: 700;
     width: 100%;
-    box-shadow: 1px 5px 6px rgba(0,0,0,0.5);
 }
 
 .search:focus {
-    outline-offset: 1vmin;
+    outline-offset: 3px;
 }
 
 .search:focus ~ .navbarLinks {
@@ -56,20 +56,6 @@
     font-family: Arial, Helvetica, sans-serif;
     text-transform: initial;
     letter-spacing: 1px;
-}
-
-.navbar a {
-    color: #fff;
-    text-decoration: none;
-    font-size: clamp(10px, 5vw, 15px);
-    font-weight: 900;
-    padding: 1rem;
-    transition: all 0.9s ease;
-}
-
-.navbar a:hover {
-    background: #57545433;
-    border-radius: 15px;
 }
 
 .navbar {
@@ -96,11 +82,16 @@
     display: flex;
     align-items: center;
     padding: 0;
-    margin: 0;
-    background-color: #5B9F6F; 
+    margin: 0; 
     gap: 0px;
     z-index: 1000;
     background-color: #9f5b5b00;
+}
+
+.signUpImg {
+    width: 8rem;
+    padding: 0;
+    margin: 0;
 }
 
 .navbarLinks li {
@@ -114,7 +105,6 @@
     display: none;
     position: absolute;
     right: 0;
-    background-color: #eb1717;
     width: 9rem;
     list-style-type: none;
     padding: 0;
@@ -123,27 +113,66 @@
 }
 
 .dropdownContent li {
-    padding: 10px;
     transition: all 0.9s ease;
 }
 
 .dropdown {
-    width: 100%;
-    height: 100%;
     position: relative;
 }
 
 
 .dropdown:hover .dropdownContent {
-    height: 60vh;
+    height: 200px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 1002;
     padding: 1rem 0;
-    background: #000;
     border: 1px solid #ddd;
 }
+
+
+.navbar .links {
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(10px, 5vw, 15px);
+    font-weight: 900;
+    padding: 1rem;
+    transition: all 0.9s ease;
+}
+
+.navbar .links:hover {
+    background: #57545433;
+    border-radius: 15px;
+    color: rgb(255, 147, 7) !important;
+    text-decoration: underline;
+}
+
+ .signLinks {
+    background: #2e633b;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    color: #fff;
+    z-index: 1002;
+    padding: 1rem 2rem;
+    border: 1px solid #ddd;
+} 
+
+.signBtn {
+    display: none;
+}
+
+.dropdown:hover .signBtn {
+    width: 11rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #2c475e;
+    position: absolute;
+}
+
+
 
 
 
