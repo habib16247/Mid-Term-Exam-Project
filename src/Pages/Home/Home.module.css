@@ -10,7 +10,7 @@
 }
 
 .content {
-    background-color: #36474e;
+    background-color: #005050;
     padding-inline: 5vw;
     position: relative;
 }
@@ -92,7 +92,9 @@
     animation-timing-function: linear;
   }
 
-
+  .jobBg, .picDemo, .Clogo, .anim, .certiBtn {
+    cursor: pointer;
+  }
 
   .jobBg, .picDemo, .Clogo, .anim  {
     animation: 2s linear 0s infinite alternate up-down;
@@ -197,7 +199,7 @@
 .jobSeeker, .employers {
     text-align: center;
     margin-top: 4rem;
-    background: rgba(79, 98, 117, 0.1);
+    background: rgba(79, 98, 117, 0.3);
     border-radius: 20px;
     padding: 2rem 0;
 }

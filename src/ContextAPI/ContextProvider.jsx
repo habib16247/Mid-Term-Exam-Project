@@ -1,15 +1,13 @@
 import { createContext, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
 import { app } from "../FireBase/Firebase.config";
-import Swal from 'sweetalert2';  // Import Swal correctly
-// import { useNavigate } from "react-router-dom";
+import Swal from 'sweetalert2';  
 
 export const AuthProvider = createContext(null);
 const auth = getAuth(app);
 
 const ContextProvider = ({ children }) => {
-
-    // const navigate = useNavigate();
+    
 
   const [formData, setFormData] = useState({
     username: "",
@@ -39,7 +37,7 @@ const ContextProvider = ({ children }) => {
           return;
     }
 
-    if (!/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(formData.password)) {
+    if (/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(formData.password)) {
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -65,9 +63,9 @@ const ContextProvider = ({ children }) => {
         updateProfile(auth.currentUser, {
             displayName: formData.username,
           })
-        //   .then(() => {
-        //     navigate("/")
-        //   })
+          .then(() => {
+            navigate("/")
+          })
         Swal.fire({
           title: "Success!",
           text: "Do you want to continue",

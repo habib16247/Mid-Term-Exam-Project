@@ -1,6 +1,15 @@
 
 /* Login.css */
 
+.background {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("https://www.w3schools.com/howto/img_nature.jpg");
+    background-size: cover;
+}
+
 .loginContainer {
     max-width: 450px;
     margin: 2rem auto;
@@ -10,7 +19,8 @@
     display: flex;
     flex-direction: column;
     border: 0;
-    background: #f9f9f9;
+    background: #3d3b3b75;
+    backdrop-filter: blur(8px);
   }
   
   .title {

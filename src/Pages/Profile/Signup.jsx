@@ -2,12 +2,15 @@ import React, { useContext } from 'react'
 
 import login from "./Sign.module.css"
 import { AuthProvider } from '../../ContextAPI/ContextProvider'
+import { useNavigate } from 'react-router-dom'
 
 
 const Signup = () => {
-  const {formData, handleChange, handleSubmit} = useContext(AuthProvider)
+  const { formData, handleChange, handleSubmit} = useContext(AuthProvider)
+  const navigate = useNavigate()
   return (
-    <div className={login.loginContainer}>
+    <div className={login.background}>
+        <div className={login.loginContainer}>
     
       <h2 className={login.title}>Sign Up</h2>
       <form className={login.form} onSubmit={handleSubmit}>
@@ -188,14 +191,15 @@ const Signup = () => {
         </div>
       </form>
       <div className={login.backB}>
-        <button className={login.btn} /*onClick={() => navigate(-1)}*/>
+        <button className={login.btn} onClick={() => navigate(-1)}>
           Back
         </button>
         <span style={{ color: "red" }}>Or</span>
-        <button className={login.btn} /*onClick={() => navigate("/")}*/ >
+        <button className={login.btn} onClick={() => navigate("/")} >
           Go Home
         </button>
       </div>
+    </div>
     </div>
   )
 }

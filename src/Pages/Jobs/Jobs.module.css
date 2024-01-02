@@ -1,0 +1,119 @@
+/* Jobs.module.css */
+.jobContainer {    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    padding-inline: 2rem;
+    background: #005050;
+}
+
+
+.jobContent {
+    display: flex;
+    gap: 0.5rem;
+    background-color: #046868;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+  @media (max-width: 768px) {
+    .jobContainer {    
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        align-items: center;
+        justify-content: center;
+        padding-inline: 1rem;
+        background: #005050;
+        margin: auto;
+    }
+
+    .jobContent {
+        gap: 0.4rem;
+        padding-right: 0.4rem;
+    }
+}
+
+
+  .jobContent:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .jobContent h2 {
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+  }
+  
+  .jobContent img {
+    max-width: 100px;
+    margin-bottom: 8px;
+  }
+  
+  .jobContent p {
+    margin-bottom: 4px;
+    color: rgb(59, 190, 190);
+  }
+
+
+  .icons, .postText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .icons {
+    border-right: 1px solid #067a97;
+    padding-right: 1rem;
+  } 
+  .postText {
+    padding-left: 1rem;
+    border-left: 1px solid #067a97;
+    transition: all 3s ease;
+  }
+  
+  .logoCompany {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .postText .btns {
+    opacity: 0;
+    transition: opacity 1s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #998d8d5e;
+    padding: 0.4rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+  .postText:hover .btns {
+    opacity: 1;
+  }
+
+
+  .icons .details {
+    width: 3rem;
+    height: rem;
+  }
+
+  .texts {
+    text-align: left;
+  }
+
+  .interactionIcon {
+    width: 3.2rem;
+  }
+
+  
