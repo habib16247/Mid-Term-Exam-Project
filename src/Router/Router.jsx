@@ -9,6 +9,8 @@ import Favorite from '../Pages/Favorite/Favorite';
 import Signup from './../Pages/Profile/Signup';
 import Signin from './../Pages/Profile/Signin';
 import NotFound from '../Pages/NotFound/NotFound';
+import DetailsModal from '../Pages/Jobs/DetailsModal';
+import axios from 'axios';
 
 const Router = createBrowserRouter([
     {
@@ -46,6 +48,11 @@ const Router = createBrowserRouter([
     {
         path: "/login",
         element: <Signin />,
+    },
+    {
+        path: "/details/:id",
+        element: <DetailsModal/>,
+        loader: ({params}) =>  fetch(`http://localhost:9000/jobs/${params.id}`)
     },
     
     {

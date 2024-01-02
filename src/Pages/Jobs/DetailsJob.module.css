@@ -1,0 +1,133 @@
+.lists li {
+    list-style: upper-latin inside;
+    font-size: 19px;
+    line-height: 1.6rem;
+    color: #272929;
+}
+
+.detailsContainer {
+    background: #005050;
+    padding: 1rem;
+    height: auto;
+    position: relative;
+}
+.detailsContent {
+    display: flex;
+    gap: 4rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+.detailsBody {
+    margin: auto;
+    max-width: 800px;
+    background-color: #046868;
+    border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+    .detailsContent {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .detailsContainer {
+        height: auto;
+    }
+}
+
+.companyLogo {
+    width: clamp(190px, 7vw, 290px);
+}
+
+.logoContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.logoName {
+    font-size: 2.9rem;
+    color: #42ced8;
+}
+
+/* .textContext {
+    font-size: 2rem;
+} */
+
+.postName {
+    font-size: clamp(25px, 5vw, 30px);
+    font-weight: 900;
+    color: aliceblue;
+    text-decoration: underline;
+}
+
+.navigateBtn {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.backBtn {
+    padding: 0.5rem;
+    background: #0bbedd;
+    border: 0;
+    font-weight: 900;
+    color: #feffff;
+    font-size: 19px;
+}
+
+.companyIntro {
+    font-size: 18px;
+    font-weight: 100;
+    font-family: FiraSans2;
+    color: #25eee4;
+}
+
+.introName {
+    font-size: 20px;
+    font-weight: 400;
+    font-family: FiraSans2;
+    color: #0fbde9;
+    text-decoration: underline;
+}
+
+.content {
+    position: relative;
+}
+
+
+.actionBtns {
+    width: 0;
+    opacity: 0;
+    border-radius: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: auto;
+    padding-inline: 7.5rem;
+    background: #9fa81c57;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    transition: all 0.9s ease;
+}
+
+.actionBtns:hover{
+    opacity: 1;
+    width: 100%;
+}
+
+.interactionIcon{
+    width: 5rem;
+}

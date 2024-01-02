@@ -2,12 +2,14 @@
 .jobContainer {    
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    padding-inline: 2rem;
+    padding: 2rem;
     background: #005050;
+    gap: 1rem;
 }
 
 
 .jobContent {
+  height: 100%;
     display: flex;
     gap: 0.5rem;
     background-color: #046868;
