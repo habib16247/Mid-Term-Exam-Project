@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile } from 'firebase/auth';
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, TwitterAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile } from 'firebase/auth';
 import { app } from "../FireBase/Firebase.config";
 import Swal from 'sweetalert2';  
 import axios from 'axios';
@@ -145,6 +145,8 @@ const ContextProvider = ({ children }) => {
 
 const providerA = new GoogleAuthProvider();
 const providerB = new FacebookAuthProvider();
+const providerC = new TwitterAuthProvider();
+const providerD = new GithubAuthProvider();
 
 const googleHandler = () => {
   signInWithPopup(auth, providerA)
@@ -153,11 +155,14 @@ const FBHandler = () => {
   signInWithPopup(auth, providerB)
 }
 const TwitterHandler = () => {
-  signInWithPopup(auth, providerB)
+  signInWithPopup(auth, providerC)
+}
+const GithubHandler = () => {
+  signInWithPopup(auth, providerD)
 }
 
   console.log(isFavorite)
-  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData, googleHandler, FBHandler, TwitterHandler };
+  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData, googleHandler, FBHandler, TwitterHandler, GithubHandler };
 
   return (
     <AuthProvider.Provider value={authentication}>
