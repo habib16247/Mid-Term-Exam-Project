@@ -152,9 +152,12 @@ const googleHandler = () => {
 const FBHandler = () => {
   signInWithPopup(auth, providerB)
 }
+const TwitterHandler = () => {
+  signInWithPopup(auth, providerB)
+}
 
   console.log(isFavorite)
-  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData, googleHandler, FBHandler };
+  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData, googleHandler, FBHandler, TwitterHandler };
 
   return (
     <AuthProvider.Provider value={authentication}>

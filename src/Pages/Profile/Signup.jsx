@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Signup = () => {
-  const { formData, handleChange, handleSubmit, googleHandler, FBHandler} = useContext(AuthProvider)
+  const { formData, handleChange, handleSubmit, googleHandler, FBHandler, TwitterHandler} = useContext(AuthProvider)
   const navigate = useNavigate()
   const SignUpHandler = (media) => {
     media()
@@ -188,7 +188,7 @@ const Signup = () => {
             </svg>
           </a>
           <a
-            // onClick={() => SignUpHandler(TwitterSignIn)}
+            onClick={() => SignUpHandler(TwitterHandler)}
             className={login.link}
             href="#facebook"
           >
