@@ -2,7 +2,7 @@
     list-style: upper-latin inside;
     font-size: 19px;
     line-height: 1.6rem;
-    color: #272929;
+    color: #0c0c0c;
 }
 
 .detailsContainer {
@@ -15,7 +15,6 @@
     display: flex;
     gap: 4rem;
     border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 2rem;
     border-radius: 1rem;
     transition: transform 0.3s ease-in-out;
@@ -24,8 +23,8 @@
 
 .detailsBody {
     margin: auto;
-    max-width: 800px;
-    background-color: #046868;
+    max-width: 900px;
+    background-color: #b2080838;
     border-radius: 1rem;
 }
 
@@ -78,11 +77,12 @@
 
 .backBtn {
     padding: 0.5rem;
-    background: #0bbedd;
+    background: #38565c;
     border: 0;
     font-weight: 900;
     color: #feffff;
     font-size: 19px;
+    border-radius: 10px;
 }
 
 .companyIntro {

@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./Home.module.css"
 import jobBoy from "../../assets/image/jobImg.svg"
+import { NavLink } from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -10,7 +11,7 @@ const Home = () => {
     <div className={`${styles.text} text-animation`}>
         <h1 className={`${styles.h1}`}>Your Guide to the Global Halal Jobs Market<sup>®</sup></h1>
         <p className={`${styles.lead}`}>When it comes to job opportunities, Halal Jibika stands out as a leader in catering to positions and roles within the Halal industry.</p>
-        <a className={`${styles.certiBtn}`} href="https://www.informaticsinc.com/">Find Jobs</a>
+        <NavLink className={`${styles.certiBtn}`} to="/jobs" href="https://www.informaticsinc.com/">Find Jobs</NavLink>
     </div>
     <div className={`${styles.jobBg} img-animation`} style={{width: "26rem"}}>
         <img src={jobBoy} alt="" />

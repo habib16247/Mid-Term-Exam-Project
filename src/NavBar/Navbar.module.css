@@ -138,7 +138,9 @@
     font-size: clamp(10px, 5vw, 15px);
     font-weight: 900;
     padding: 1rem;
+    position: relative;
     transition: all 0.9s ease;
+    display: flex;
 }
 
 .navbar .links:hover {
@@ -149,7 +151,7 @@
 }
 
  .signLinks {
-    background: #2e633b;
+    background: #01FE02;
     padding: 1rem 2rem;
     border-radius: 10px;
     color: #fff;
@@ -238,7 +240,7 @@
     }
 
     .navbarLinks {
-        height: 60vh;
+        height: 70vh;
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -267,5 +269,20 @@
         left: -145px;
         bottom: 0;
     }
+
+}
+
+
+.carts {
+    width: 2rem;
+    height: 2rem;
+    background: #e9240a;
+    position: absolute;
+    top: -12px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 
 }

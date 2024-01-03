@@ -1,14 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import axios from 'axios';
 import styles from './Jobs.module.css';
 import { NavLink } from 'react-router-dom';
 import DetailsModal from './DetailsModal';
+import { AuthProvider } from '../../ContextAPI/ContextProvider';
 
 const Jobs = () => {
   const [isReact, setIsReact] = useState(false);
   const [jobs, setJobs] = useState([]);
   const [selectedJobId, setSelectedJobId] = useState(null);
+  const [isFavorite, setIsFavorite] = useState()
+
+
+  const {reactHandler, } = useContext(AuthProvider)
 
   const deleteHandler = (id) => {
     const deleteFilter = jobs.filter((item) => item.id !== id);
@@ -43,9 +48,15 @@ const Jobs = () => {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []); // Empty dependency array means this useEffect runs once when the component mounts
+
+
+
+  // if(isReact) {
+  //   setIsFavorite(jobs)
+  // }
+  // useEffect(() => {
+  //   fetchData();
+  // }, []); // Empty dependency array means this useEffect runs once when the component mounts
 
   return (
     <div className={styles.jobContainer}>
@@ -72,8 +83,9 @@ const Jobs = () => {
           <div className={styles.postText}>
             <div className={styles.texts}>
               <h2>{job.title}</h2>
-              <p>{job.position}</p>
-              <p>{job.description}</p>
+              <p  className={styles.jobIntroInfo}>{job.position}</p>
+              <p className={styles.jobIntroInfo}>{job.description}</p>
+              <p className={styles.jobIntroInfo}>Salary: {job.salary}</p>
             </div>
             <div className={styles.btns}>
               {job.isReact ? (

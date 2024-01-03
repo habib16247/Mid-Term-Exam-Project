@@ -12,7 +12,7 @@
   height: 100%;
     display: flex;
     gap: 0.5rem;
-    background-color: #046868;
+    background-color: #5f61648a;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     padding: 16px;
@@ -116,6 +116,10 @@
 
   .interactionIcon {
     width: 3.2rem;
+  }
+
+  p.jobIntroInfo {
+    color: #b0cece;
   }
 
   

@@ -7,7 +7,7 @@ export const AuthProvider = createContext(null);
 const auth = getAuth(app);
 
 const ContextProvider = ({ children }) => {
-    
+    const [count, setCount] = useState(0)
 
   const [formData, setFormData] = useState({
     username: "",
@@ -83,7 +83,7 @@ const ContextProvider = ({ children }) => {
       });
   };
 
-  const authentication = { formData, handleChange, handleSubmit };
+  const authentication = { formData, handleChange, handleSubmit, count, setCount };
   return (
     <AuthProvider.Provider value={authentication}>
       {children}

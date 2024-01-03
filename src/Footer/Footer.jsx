@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import logo from "../assets/image/logo.png";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -121,12 +122,12 @@ const Footer = () => {
             <h3>Contact</h3>
             <p>
               <strong>Phone</strong>:<br />
-              <a href="tel:1-319-362-0480">319-362-0480</a>
+              <a href="tel:8801972-279431">01972-279431</a>
             </p>
 
             <p>
               <strong>Email</strong>:<br />
-              <a href="mailto:isa@isahalal.com">isa@isahalal.com</a>
+              <a href="mailto:isa@isahalal.com">habibullah162470@gmail.com</a>
             </p>
 
             <p>
@@ -161,24 +162,24 @@ const Footer = () => {
           <h3>Navigation</h3>
           <ul className={styles.nav}>
             <li>
-              <a href="#" target="_self">
+              <NavLink to="/" target="_self">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a href="" target="_self">
-                About ISA
-              </a>
+              <NavLink to="/jobs" target="_self">
+                Jobs
+              </NavLink>
             </li>
             <li>
-              <a href="" target="_self">
-                Global Halal Recognition
-              </a>
+              <NavLink to="/about" target="_self">
+                About
+              </NavLink>
             </li>
             <li>
-              <a href="#" target="_self">
-                Services
-              </a>
+              <NavLink to="/favorite" target="_self">
+                Favorite
+              </NavLink>
             </li>
             <li>
               <a href="#" target="_self">
@@ -191,9 +192,9 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="" target="_self">
+              <NavLink to="/contact" target="_self">
                 Contact
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>

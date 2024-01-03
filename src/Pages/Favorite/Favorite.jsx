@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import axios from "axios"
 import styles from './Favorite.module.css';
+import { AuthProvider } from './../../ContextAPI/ContextProvider';
 
 
 const Favorite = () => {
+
+  const {setCount} = useContext(AuthProvider)
+  
   const [isReact, setIsReact] = useState(false)
   const [jobs, setJobs] = useState([]);
 
@@ -37,6 +41,7 @@ const Favorite = () => {
     }
   };
 
+  setCount(() => jobs.length)
   useEffect(() => {
     fetchData();
   }, []);  // Empty dependency array means this useEffect runs once when the component mounts

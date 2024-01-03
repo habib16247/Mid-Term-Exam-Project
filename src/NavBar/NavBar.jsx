@@ -1,12 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import styles from "./Navbar.module.css";
 import logo from "../assets/image/logo.png";
 import profile from "../assets/image/HABIB.jpeg";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
+import { AuthProvider } from '../ContextAPI/ContextProvider';
 
 const NavBar = () => {
+    const {count} = useContext(AuthProvider)
     const [isOpen, setIsOpen] = useState(false);
     const navbarRef = useRef(null);
 
@@ -15,6 +17,7 @@ const NavBar = () => {
     };
 
     const handleClickOutside = (event) => {
+
         if (navbarRef.current && !navbarRef.current.contains(event.target)) {
             setIsOpen(false);
         }
@@ -72,7 +75,7 @@ const NavBar = () => {
                         <li><NavLink className={styles.links} to="/jobs">Jobs</NavLink></li>
                         <li><NavLink className={styles.links} to="/about">About</NavLink></li>
                         <li><NavLink className={styles.links} to="/contact">Contact</NavLink></li>
-                        <li><NavLink className={styles.links} to="/favorite">Favorite</NavLink></li>
+                        <li><NavLink className={styles.links} to="/favorite"><p className={styles.carts}>{count}</p>Favorite</NavLink></li>
                         <li className={styles.dropdown}>
                             <div className={`${styles.dropProfile} ${styles.signLinks}`}>
                                 <NavLink style={{color: "#fff"}} to="/favorite">

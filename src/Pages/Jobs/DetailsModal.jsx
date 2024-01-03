@@ -4,7 +4,7 @@ import styles from "./DetailsJob.module.css"
 const DetailsModal = () => {
     const navigate = useNavigate()
     const loadData = useLoaderData()
-    const { id, title, logo, companyName, position, description, requirements, qualifications } = loadData;
+    const { id, salary, title, logo, companyName, position, description, requirements, qualifications } = loadData;
 
     return (
         <div className={styles.detailsContainer}>
@@ -20,6 +20,7 @@ const DetailsModal = () => {
             <p className={styles.companyIntro}><strong className={styles.introName}>Company:</strong> {companyName}</p>
             <p className={styles.companyIntro}><strong className={styles.introName}>Position:</strong> {position}</p>
             <p className={styles.companyIntro}><strong className={styles.introName}>Description:</strong> {description}</p>
+            <p className={styles.companyIntro}><strong className={styles.introName}>Salary:</strong> {salary}</p>
             <div>
                 <h3>Requirements:</h3>
                 <ul className={styles.lists}>
