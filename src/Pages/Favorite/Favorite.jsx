@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 // import axios from "axios"
 import styles from './Favorite.module.css';
 import { AuthProvider } from './../../ContextAPI/ContextProvider';
+import { NavLink } from 'react-router-dom';
 
 
 const Favorite = () => {
@@ -19,6 +20,10 @@ const Favorite = () => {
   setCount(() => jobs.length)
 
   return (
+    <>
+    <div className={styles.favoriteHero}>
+          <h1 className={styles.directPath}><NavLink to="/"  style={{color: "rgb(255, 147, 7)"}}>Home </NavLink>/ About</h1>
+      </div>
     <div className={styles.jobContainer}>
       {isFavorite ? (
         isFavorite.map((job) => (
@@ -68,6 +73,8 @@ const Favorite = () => {
         <p>No favorites yet!</p>
       )}
     </div>
+    
+    </>
   );
 };
 

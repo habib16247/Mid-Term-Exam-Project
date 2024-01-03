@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import login from "./Sign.module.css"
 import { AuthProvider } from '../../ContextAPI/ContextProvider'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { app } from '../../FireBase/Firebase.config'
 
@@ -62,7 +62,7 @@ const Signin = () => {
           Sign In
         </button>
 
-        <p>Already</p>
+        <p>Are you complete Registration? <NavLink to="/signup">Register here</NavLink></p>
 
         <div className={login.authentication}>
           <a

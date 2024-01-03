@@ -20,6 +20,31 @@
     transition: transform 0.3s ease-in-out;
   }
 
+  .aboutHero {
+    display: block;
+    background-image: url("https://as1.ftcdn.net/v2/jpg/03/53/28/08/1000_F_353280884_oyeOLzk0EyvfC4pvixbvcfA4s745SaX6.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    margin-inline: auto;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+.directPath {
+  display: block;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    color: aliceblue;
+    text-decoration: underline;
+}
+
 
   @media (max-width: 768px) {
     .jobContainer {    

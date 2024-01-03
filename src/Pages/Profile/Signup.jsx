@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 
 import login from "./Sign.module.css"
 import { AuthProvider } from '../../ContextAPI/ContextProvider'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 
 const Signup = () => {
@@ -83,6 +83,8 @@ const Signup = () => {
         <button className={login.button} type="submit">
           Sign Up
         </button>
+        
+        <p>Already have an account? <NavLink to="/login">SignIn here</NavLink></p>
 
         <div className={login.authentication}>
           <a

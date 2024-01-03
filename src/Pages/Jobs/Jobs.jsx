@@ -36,11 +36,16 @@ const Jobs = () => {
   // Empty dependency array means this useEffect runs once when the component mounts
 
   return (
+    <>
+    <div className={styles.aboutHero}>
+          <h1 className={styles.directPath}><NavLink to="/" style={{color: "rgb(255, 147, 7)"}}>Home </NavLink>/ Jobs</h1>
+      </div>
     <div className={styles.jobContainer}>
       {jobs.map((job) => (
         <JobComponent key={job.id} job={job} deleteHandler={deleteHandler}/>
       ))}
     </div>
+    </>
   );
 };
 

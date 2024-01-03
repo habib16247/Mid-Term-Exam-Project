@@ -5,7 +5,9 @@ import { NavLink } from 'react-router-dom'
 const JobComponent = ({job, deleteHandler}) => {
 
   return (
-    <div>
+    <NavLink
+    to={`/details/${job.id}`}>
+      <div>
         <div className={styles.jobContent}>
           <div className={styles.icons}>
             <div className={styles.logoCompany}>
@@ -67,6 +69,7 @@ const JobComponent = ({job, deleteHandler}) => {
           </div>
         </div>
     </div>
+    </NavLink>
   )
 }
 
