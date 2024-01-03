@@ -63,9 +63,9 @@ const NavBar = () => {
 
                 <div className={styles.hamburger}>
                     {isOpen ? (
-                        <AiFillCloseSquare className={styles.menu} onClick={toggleMenu} />
+                        <div style={{fontSize: "30px"}}><AiFillCloseSquare className={styles.menu} onClick={toggleMenu} /></div>
                     ) : (
-                        <BsFillMenuButtonWideFill className={styles.menu} onClick={toggleMenu} />
+                        <div style={{fontSize: "30px"}}><BsFillMenuButtonWideFill className={styles.menu} onClick={toggleMenu} /></div>
                     )}
                 </div>
 

@@ -5,6 +5,8 @@
     color: #0c0c0c;
 }
 
+
+
 .detailsContainer {
     background: #005050;
     padding: 1rem;
@@ -28,16 +30,7 @@
     border-radius: 1rem;
 }
 
-@media (max-width: 768px) {
-    .detailsContent {
-        flex-direction: column;
-        gap: 1rem;
-    }
 
-    .detailsContainer {
-        height: auto;
-    }
-}
 
 .companyLogo {
     width: clamp(190px, 7vw, 290px);
@@ -106,7 +99,6 @@
 
 
 .actionBtns {
-    width: 0;
     opacity: 0;
     border-radius: 13px;
     display: flex;
@@ -120,6 +112,7 @@
     top: 0;
     bottom: 0;
     z-index: 100;
+    backdrop-filter: blur(10px);
     transition: all 0.9s ease;
 }
 
@@ -130,4 +123,26 @@
 
 .interactionIcon{
     width: 5rem;
+}
+
+@media (max-width: 768px) {
+    .detailsContent {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .detailsContainer {
+        height: auto;
+    }
+
+    
+    .actionBtns {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        padding: 0;
+        top: 0;
+        backdrop-filter: blur(10px);
+    }
 }

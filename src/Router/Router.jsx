@@ -16,6 +16,10 @@ const Router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
+        id: "root",
+        loader: () =>{
+            return axios.get(`http://localhost:9000/jobs`)
+        },
         children: [
             {
                 path: "/",
@@ -41,7 +45,7 @@ const Router = createBrowserRouter([
             
         ]
     },
-
+  
     {
         path: "/signup",
         element: <Signup />,

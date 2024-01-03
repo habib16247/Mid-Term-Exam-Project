@@ -1,128 +1,79 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Swal from 'sweetalert2';
-import axios from 'axios';
 import styles from './Jobs.module.css';
 import { NavLink } from 'react-router-dom';
-import DetailsModal from './DetailsModal';
 import { AuthProvider } from '../../ContextAPI/ContextProvider';
+import axios from 'axios';
+import JobComponent from '../../Components/JobComponent/JobComponent';
 
 const Jobs = () => {
-  const [isReact, setIsReact] = useState(false);
-  const [jobs, setJobs] = useState([]);
-  const [selectedJobId, setSelectedJobId] = useState(null);
-  const [isFavorite, setIsFavorite] = useState()
 
+  const { reactHandler, jobs, fetchData} = useContext(AuthProvider);
 
-  const {reactHandler, } = useContext(AuthProvider)
+ 
 
-  const deleteHandler = (id) => {
-    const deleteFilter = jobs.filter((item) => item.id !== id);
-    setJobs(deleteFilter);
-  };
+  // const [selectedJobId, setSelectedJobId] = useState(null);
 
-  const reactHandler = (id) => {
-    setJobs((prevJobs) => {
-      return prevJobs.map((job) => {
-        if (job.id === id) {
-          return {
-            ...job,
-            isReact: !job.isReact, // Toggle the isReact property for the specific job
-          };
-        }
-        return job;
-      });
-    });
-  };
+  // const [jobsData, setJobs ] = useState(jobs);
 
-  const fetchData = async () => {
+  // const deleteHandler = (id)  => {
+  //   setJobs(prevJobs => prevJobs.filter(job => job.id !== id))
+  // }
+
+  const deleteHandler = async (id) => {
     try {
-      const response = (await axios.get('http://localhost:9000/jobs')).data;
-      setJobs(response);
+      const response = await axios.delete(`http://localhost:9000/jobs/${id}`);
+      console.log("DELETE Response:", response.data);
+      fetchData()
     } catch (error) {
-      Swal.fire({
-        title: error.message,
-        text: 'Do you want to continue',
-        icon: 'error',
-        confirmButtonText: 'Cool',
-      });
+      console.error("Error deleting post: ", error);
     }
   };
-
-
 
 
   // if(isReact) {
   //   setIsFavorite(jobs)
   // }
-  // useEffect(() => {
-  //   fetchData();
-  // }, []); // Empty dependency array means this useEffect runs once when the component mounts
+  // Empty dependency array means this useEffect runs once when the component mounts
 
   return (
     <div className={styles.jobContainer}>
       {jobs.map((job) => (
-        <div key={job.id} className={styles.jobContent}>
-          <div className={styles.icons}>
-            <div className={styles.logoCompany}>
-              <img src={job.logo} alt="" />
-              <h2>{job.companyName}</h2>
-            </div>
-            <NavLink
-              to={`/details/${job.id}`}
-              onClick={() => setSelectedJobId(job.id)}
-            >
-              <img
-                title="Show More Details!"
-                key={job.id}
-                className={styles.details}
-                src="https://img.icons8.com/?size=48&id=FfPV3jkJQwxU&format=png"
-                alt=""
-              />
-            </NavLink>
-          </div>
-          <div className={styles.postText}>
-            <div className={styles.texts}>
-              <h2>{job.title}</h2>
-              <p  className={styles.jobIntroInfo}>{job.position}</p>
-              <p className={styles.jobIntroInfo}>{job.description}</p>
-              <p className={styles.jobIntroInfo}>Salary: {job.salary}</p>
-            </div>
-            <div className={styles.btns}>
-              {job.isReact ? (
-                <img
-                  title="Loved"
-                  onClick={() => reactHandler(job.id)}
-                  className={styles.interactionIcon}
-                  src="https://img.icons8.com/?size=160&id=115342"
-                  alt=""
-                />
-              ) : (
-                <img
-                  title="Favorite"
-                  onClick={() => reactHandler(job.id)}
-                  className={styles.interactionIcon}
-                  src="https://img.icons8.com/?size=128&id=80322&format=png"
-                  alt=""
-                />
-              )}
-              <img
-                title="Edit"
-                className={styles.interactionIcon}
-                src="https://img.icons8.com/?size=100&id=102714&format=png"
-                alt=""
-              />
-              <img
-                title="Delete"
-                className={styles.interactionIcon}
-                src="https://img.icons8.com/?size=100&id=8mDEXg7uTLVh&format=png"
-                alt=""
-              />
-            </div>
-          </div>
-        </div>
+        <JobComponent key={job.id} job={job} deleteHandler={deleteHandler}/>
       ))}
     </div>
   );
 };
 
 export default Jobs;
+
+
+
+
+// return (
+//   <div className={styles.jobContainer}>
+//     {jobs.map((job) => (
+//       <div key={job.id} className={styles.jobContent}>
+//         {/* ... [Other JSX] */}
+//         {job.isReact ? (
+//           <img
+//             title="Loved"
+//             onClick={() => reactHandler(job.id)}
+//             className={styles.interactionIcon}
+//             src="https://img.icons8.com/?size=160&id=115342"
+//             alt=""
+//           />
+//         ) : (
+//           <img
+//             title="Favorite"
+//             onClick={() => reactHandler(job.id)}
+//             className={styles.interactionIcon}
+//             src="https://img.icons8.com/?size=128&id=80322&format=png"
+//             alt=""
+//           />
+//         )}
+//         {/* ... [Other JSX] */}
+//       </div>
+//     ))}
+//   </div>
+// );
+// };

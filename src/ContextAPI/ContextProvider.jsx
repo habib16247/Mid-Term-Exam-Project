@@ -1,13 +1,18 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
 import { app } from "../FireBase/Firebase.config";
 import Swal from 'sweetalert2';  
+import axios from 'axios';
 
 export const AuthProvider = createContext(null);
 const auth = getAuth(app);
 
 const ContextProvider = ({ children }) => {
     const [count, setCount] = useState(0)
+    const [deleteCount, setDeleteCount] = useState(0)
+    const [isReact, setIsReact] = useState(false);
+    const [jobs, setJobs] = useState([]);
+    const [isFavorite, setIsFavorite] = useState()
 
   const [formData, setFormData] = useState({
     username: "",
@@ -82,8 +87,57 @@ const ContextProvider = ({ children }) => {
         });
       });
   };
+  
+  const reactHandler = (id) => {
+    setJobs((prevJobs) => {
+      return prevJobs.map((job) => {
+        if (job.id === id) {
+          return {
+            ...job,
+            isReact: !job.isReact,
+          };
+        }
+        return job;
+      });
+    });
+  };
+  
 
-  const authentication = { formData, handleChange, handleSubmit, count, setCount };
+  // const deleteHandler = (id) => {
+  //   const deleteFilter = jobs.filter((item) => item.id !== id);
+  //   setJobs(deleteFilter);
+  // };
+
+  
+
+  const fetchData = async () => {
+    try {
+      const response = (await axios.get('http://localhost:9000/jobs')).data;
+      setJobs(response);
+    } catch (error) {
+      Swal.fire({
+        title: error.message,
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool',
+      });
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []); 
+
+
+  if (isReact) {
+    setIsFavorite(jobs)
+  } else {
+    console.log("there is no favorite?")
+  }
+
+  console.log(isFavorite)
+  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData };
+
   return (
     <AuthProvider.Provider value={authentication}>
       {children}
