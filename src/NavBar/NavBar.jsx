@@ -98,7 +98,7 @@ const NavBar = () => {
                         <li><NavLink className={styles.links} to="/favorite"><p className={styles.carts}>{count}</p>Favorite</NavLink></li>
                         <li className={styles.dropdown}>
                             
-                            {auth.currentUser ? (
+                            
                                 <div>
                                     <div className={`${styles.dropProfile} ${styles.signLinks}`}>
                                         <NavLink style={{color: "#fff"}} to="/favorite">
@@ -118,14 +118,15 @@ const NavBar = () => {
                                         </li>
                                     </ul>  
                                 </div>
-                                
+                                {/* {auth.currentUser ? (
                             ) : (
                                 <ul className={styles.dropdownContent}>
                                     <li><img style={{ width: "100px" }} src={profile} alt="" /></li>
                                     <li  onClick={logout}><NavLink>Sign Out</NavLink></li>
                                 </ul>
                                 
-                            )}
+
+                            )} */}
                         </li>
                     </ul>
                 )}

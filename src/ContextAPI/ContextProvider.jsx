@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth';
+import { FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile } from 'firebase/auth';
 import { app } from "../FireBase/Firebase.config";
 import Swal from 'sweetalert2';  
 import axios from 'axios';
@@ -13,6 +13,7 @@ const ContextProvider = ({ children }) => {
     const [isReact, setIsReact] = useState(false);
     const [jobs, setJobs] = useState([]);
     const [isFavorite, setIsFavorite] = useState()
+    const [user, setUser] = useState({})
 
   const [formData, setFormData] = useState({
     username: "",
@@ -135,8 +136,25 @@ const ContextProvider = ({ children }) => {
     console.log("there is no favorite?")
   }
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      setUser(user)
+    });
+  }, [user])
+
+
+const providerA = new GoogleAuthProvider();
+const providerB = new FacebookAuthProvider();
+
+const googleHandler = () => {
+  signInWithPopup(auth, providerA)
+}
+const FBHandler = () => {
+  signInWithPopup(auth, providerB)
+}
+
   console.log(isFavorite)
-  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData };
+  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData, googleHandler, FBHandler };
 
   return (
     <AuthProvider.Provider value={authentication}>

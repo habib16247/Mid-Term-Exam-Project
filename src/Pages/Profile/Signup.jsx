@@ -6,8 +6,30 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Signup = () => {
-  const { formData, handleChange, handleSubmit} = useContext(AuthProvider)
+  const { formData, handleChange, handleSubmit, googleHandler, FBHandler} = useContext(AuthProvider)
   const navigate = useNavigate()
+  const SignUpHandler = (media) => {
+    media()
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        return Swal.fire({
+          title: "Success!",
+          text: "Do you want to continue",
+          icon: "success",
+          confirmButtonText: "Cool",
+        });
+      })
+      .catch((error) => {
+        console.error("Firebase error:", error);
+        return Swal.fire({
+          title: "Error!",
+          text: "Do you want to continue",
+          icon: "error",
+          confirmButtonText: "Cool",
+        });
+      });
+  };
   return (
     <div className={login.background}>
         <div className={login.loginContainer}>
@@ -64,7 +86,7 @@ const Signup = () => {
 
         <div className={login.authentication}>
           <a
-            // onClick={() => SignUpHandler(FBSignIn)}
+            onClick={() => SignUpHandler(FBHandler)}
             className={login.link}
             href="#facebook"
           >
@@ -87,7 +109,7 @@ const Signup = () => {
             </svg>
           </a>
           <a
-            // onClick={() => SignUpHandler(GoogleSignIn)}
+            onClick={() => SignUpHandler(googleHandler)}
             className={login.link}
             href="#facebook"
           >
