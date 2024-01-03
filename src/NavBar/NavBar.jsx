@@ -6,11 +6,31 @@ import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { AiFillCloseSquare } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
 import { AuthProvider } from '../ContextAPI/ContextProvider';
+import { getAuth, signOut } from 'firebase/auth';
+import { app } from '../FireBase/Firebase.config';
+import Swal from 'sweetalert2';
 
 const NavBar = () => {
     const {count} = useContext(AuthProvider)
     const [isOpen, setIsOpen] = useState(false);
     const navbarRef = useRef(null);
+
+    const auth = getAuth(app)
+    const logout = () => {
+        signOut(auth).then(() => {
+            Swal.fire({
+                icon: 'success',
+                title: 'Logged Out Successfully'
+            });
+        }).catch((error) => {
+            console.error('Logout Error:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Logout Failed',
+                text: error.message
+            });
+        });
+    };
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -77,29 +97,35 @@ const NavBar = () => {
                         <li><NavLink className={styles.links} to="/contact">Contact</NavLink></li>
                         <li><NavLink className={styles.links} to="/favorite"><p className={styles.carts}>{count}</p>Favorite</NavLink></li>
                         <li className={styles.dropdown}>
-                            <div className={`${styles.dropProfile} ${styles.signLinks}`}>
-                                <NavLink style={{color: "#fff"}} to="/favorite">
-                                    SignUp/SignIn    
-                                </NavLink>
-                            </div>
-                            <ul className={`${styles.signBtn}`}>
-                                <li>
-                                    <NavLink className={styles.signlinkss} to="/signup">
-                                        <img className={styles.signUpImg} src="https://www.freeiconspng.com/thumbs/sign-up-button-png/sign-up-button-png-33.png" alt="" />
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/login" className={styles.signlinkss}>
-                                        <img className={styles.signUpImg} src="https://static.vecteezy.com/system/resources/thumbnails/008/480/184/small/login-click-with-cursor-3d-icon-model-cartoon-style-concept-render-illustration-png.png" alt="" />
-                                    </NavLink>
-                                </li>
-                            </ul>
-                            {/* <div className={styles.dropProfile}><img style={{ width: "50px", height: "50px", borderRadius: "50%" }} src={profile} alt="" /></div>
-                            <ul className={styles.dropdownContent}>
-                                <li><img style={{ width: "100px" }} src={profile} alt="" /></li>
+                            
+                            {auth.currentUser ? (
+                                <div>
+                                    <div className={`${styles.dropProfile} ${styles.signLinks}`}>
+                                        <NavLink style={{color: "#fff"}} to="/favorite">
+                                            SignUp/SignIn    
+                                        </NavLink>
+                                    </div>
+                                    <ul className={`${styles.signBtn}`}>
+                                        <li>
+                                            <NavLink className={styles.signlinkss} to="/signup">
+                                                <img className={styles.signUpImg} src="https://www.freeiconspng.com/thumbs/sign-up-button-png/sign-up-button-png-33.png" alt="" />
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to="/login" className={styles.signlinkss}>
+                                                <img className={styles.signUpImg} src="https://static.vecteezy.com/system/resources/thumbnails/008/480/184/small/login-click-with-cursor-3d-icon-model-cartoon-style-concept-render-illustration-png.png" alt="" />
+                                            </NavLink>
+                                        </li>
+                                    </ul>  
+                                </div>
                                 
-                                <li><NavLink>Sign Out</NavLink></li>
-                            </ul> */}
+                            ) : (
+                                <ul className={styles.dropdownContent}>
+                                    <li><img style={{ width: "100px" }} src={profile} alt="" /></li>
+                                    <li  onClick={logout}><NavLink>Sign Out</NavLink></li>
+                                </ul>
+                                
+                            )}
                         </li>
                     </ul>
                 )}

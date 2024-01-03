@@ -3,11 +3,31 @@ import React, { useContext } from 'react'
 import login from "./Sign.module.css"
 import { AuthProvider } from '../../ContextAPI/ContextProvider'
 import { useNavigate } from 'react-router-dom'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { app } from '../../FireBase/Firebase.config'
 
 
 const Signin = () => {
-  const { formData, handleChange, handleSubmit} = useContext(AuthProvider)
+  const { formData, handleChange } = useContext(AuthProvider)
   const navigate = useNavigate()
+
+ const auth = getAuth(app)
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, formData.email, formData.password)
+      .then((userCredential) => {
+        console.log(userCredential);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+
+
+
   return (
     <div className={login.background}>
         <div className={login.loginContainer}>
@@ -41,6 +61,8 @@ const Signin = () => {
         <button className={login.button} type="submit">
           Sign In
         </button>
+
+        <p>Already</p>
 
         <div className={login.authentication}>
           <a
