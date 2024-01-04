@@ -12,6 +12,7 @@ import NotFound from '../Pages/NotFound/NotFound';
 import DetailsModal from '../Pages/Jobs/DetailsModal';
 import axios from 'axios';
 import AddJob from '../Components/AddJob/AddJob';
+import PrivateRoutes from './PrivateRoutes';
 
 const Router = createBrowserRouter([
     {
@@ -28,7 +29,11 @@ const Router = createBrowserRouter([
             },
             {
                 path: "/jobs",
-                element: <Jobs />
+                element: (
+                    <PrivateRoutes>
+                        <Jobs />
+                    </PrivateRoutes>
+                )
             },
             {
                 path: "/about",

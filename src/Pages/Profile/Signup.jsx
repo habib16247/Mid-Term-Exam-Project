@@ -10,25 +10,27 @@ const Signup = () => {
   const navigate = useNavigate()
   const SignUpHandler = (media) => {
     media()
-      .then((res) => {
-        const user = res.user;
-        console.log(user);
-        return Swal.fire({
-          title: "Success!",
-          text: "Do you want to continue",
-          icon: "success",
-          confirmButtonText: "Cool",
-        });
-      })
-      .catch((error) => {
-        console.error("Firebase error:", error);
-        return Swal.fire({
-          title: "Error!",
-          text: "Do you want to continue",
-          icon: "error",
-          confirmButtonText: "Cool",
-        });
+    .then((res) => {
+      const user = res.user;
+      console.log(user);
+      Swal.fire({
+        title: "Success!",
+        text: "Do you want to continue",
+        icon: "success",
+        confirmButtonText: "Cool",
+      }).then(() => {
+        navigate("/");
       });
+    })
+    .catch((error) => {
+      console.error("Firebase error:", error);
+      Swal.fire({
+        title: "Error!",
+        text: "Do you want to continue",
+        icon: "error",
+        confirmButtonText: "Cool",
+      });
+    });
   };
   return (
     <div className={login.background}>
@@ -236,3 +238,4 @@ const Signup = () => {
 }
 
 export default Signup
+

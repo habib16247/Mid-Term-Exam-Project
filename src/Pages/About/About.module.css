@@ -1,3 +1,8 @@
+.aboutContainer {
+    background-color: #005050;
+}
+
+
 .aboutHero {
     background-image: url("https://as1.ftcdn.net/v2/jpg/03/53/28/08/1000_F_353280884_oyeOLzk0EyvfC4pvixbvcfA4s745SaX6.jpg");
     background-repeat: no-repeat;
@@ -19,4 +24,39 @@
     backdrop-filter: blur(10px);
     color: aliceblue;
     text-decoration: underline;
+}
+
+
+.authorIntro {
+     font-size: clamp(20px, 5vw, 40px);
+     font-weight: 900;
+     color: aliceblue;
+}
+
+.authorityContent {
+    padding: 1rem 3rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+.author {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.authorprofile {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.ceopanel {
+    text-align: left;
+    margin-top: 10px;
+    font-size: clamp(20px, 5vw, 25px);
+    font-weight: bold;
+    color: aliceblue;
 }

@@ -102,9 +102,6 @@
 
 /* Dropdown styles */
 .dropdownContent {
-    display: none;
-    position: absolute;
-    right: 0;
     width: 9rem;
     list-style-type: none;
     padding: 0;
@@ -191,7 +188,7 @@
     z-index: 10;
 }
 
-
+.dropdownContent
 
 
 /* Ensure that the closing icon is visible */
@@ -228,6 +225,7 @@
         justify-content: space-between;
         gap: 1rem;
         position: static;
+        background-color: #2e3f33;
     }
 
     .navbar .logo {
@@ -248,7 +246,8 @@
         text-align: center;
         gap: 1rem;
         padding: 2rem 1rem;
-        background-color:#000000fd;
+        background-color:#2e3f33;
+        border: 1px solid rgb(180, 171, 171);
         position: absolute;
         top: 6.2rem;
         right: 0;
@@ -263,11 +262,17 @@
         align-items: center;
         z-index: 1000;
         padding: 0;
-        background-color:#00000094;
-        border: 1px solid #0f0f0f;
+        background-color: #2e3f33;
+        border: 1px solid rgb(180, 171, 171);
         top: 0;
         left: -145px;
         bottom: 0;
+    }
+
+    .userInformation {
+        position: absolute;
+        top: -100px;
+        left: -180px;
     }
 
 }
@@ -285,4 +290,38 @@
     justify-content: center;
     border-radius: 50%;
 
+}
+
+
+.profilePic {
+    border-radius: 50%;
+    width: 40px;
+}
+
+.signInUser {
+    position: relative;
+}
+
+.userInformation {
+    display: none;
+    width: fit-content;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    background-color: #2e3f33;
+    border: 1px solid rgb(180, 171, 171);
+    padding: 1rem;
+}
+
+.singleInfo {
+    font-size: 12px;
+}
+
+.signInUser:hover .userInformation {
+    transition: all 2s ease;
+    display: block;
+}
+
+.detailsprofilePic {
+    width: 130px;
 }

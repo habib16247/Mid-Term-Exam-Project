@@ -70,12 +70,14 @@ const NavBar = () => {
         };
     }, []);
 
+    console.log(auth.currentUser)
     return (
         <div className={styles.navContainer}>
             <nav ref={navbarRef} className={styles.navbar}>
                 <div className={styles.navbarBrand}>
                     <img className={styles.logo} src={logo} alt="halal-jibika" />
                 </div>
+                <div></div>
 
                 <div className={styles.searchbar}>
                     <input className={styles.search} type="text" placeholder='Search here .......' />
@@ -97,8 +99,19 @@ const NavBar = () => {
                         <li><NavLink className={styles.links} to="/contact">Contact</NavLink></li>
                         <li><NavLink className={styles.links} to="/favorite"><p className={styles.carts}>{count}</p>Favorite</NavLink></li>
                         <li className={styles.dropdown}>
+                        {auth?.currentUser ? (
+                           <div className={styles.signInUser}>
+                             <img className={styles.profilePic} src={auth?.currentUser.photoURL} alt="" />
+                             <div className={styles.userInformation}>
+                             <img className={styles.detailsprofilePic} src={auth?.currentUser.photoURL} alt="" />
+                             <p className={styles.singleInfo}>{auth?.currentUser.displayName}</p>
+                             <p className={styles.singleInfo}>{auth?.currentUser.email}</p>
+                             <li  onClick={logout}><NavLink>Sign Out</NavLink></li>
+                             </div>
+                           </div>                      
                             
-                            
+                            ) : (
+                                
                                 <div>
                                     <div className={`${styles.dropProfile} ${styles.signLinks}`}>
                                         <NavLink style={{color: "#fff"}} to="/favorite">
@@ -118,15 +131,9 @@ const NavBar = () => {
                                         </li>
                                     </ul>  
                                 </div>
-                                {/* {auth.currentUser ? (
-                            ) : (
-                                <ul className={styles.dropdownContent}>
-                                    <li><img style={{ width: "100px" }} src={profile} alt="" /></li>
-                                    <li  onClick={logout}><NavLink>Sign Out</NavLink></li>
-                                </ul>
                                 
 
-                            )} */}
+                            )} 
                         </li>
                     </ul>
                 )}

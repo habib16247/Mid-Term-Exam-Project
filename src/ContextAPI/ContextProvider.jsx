@@ -3,6 +3,7 @@ import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, TwitterAu
 import { app } from "../FireBase/Firebase.config";
 import Swal from 'sweetalert2';  
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const AuthProvider = createContext(null);
 const auth = getAuth(app);
@@ -12,7 +13,6 @@ const ContextProvider = ({ children }) => {
     const [deleteCount, setDeleteCount] = useState(0)
     const [isReact, setIsReact] = useState(false);
     const [jobs, setJobs] = useState([]);
-    const [isFavorite, setIsFavorite] = useState()
     const [user, setUser] = useState({})
 
   const [formData, setFormData] = useState({
@@ -161,8 +161,28 @@ const GithubHandler = () => {
   signInWithPopup(auth, providerD)
 }
 
-  console.log(isFavorite)
-  const authentication = { deleteCount, setDeleteCount, isFavorite, formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData, googleHandler, FBHandler, TwitterHandler, GithubHandler };
+
+// const [isFavorite, setIsFavorite] = useState(job.istrue || false);
+
+//   const handleFavorite = (job) => {
+//     const status = !isFavorite;
+
+//     axios
+//       .put(`http://localhost:9000/jobs/${job.id}`, {
+//         ...job,
+//         istrue: status,
+//       })
+//       .then((res) => {
+//         setIsFavorite(status);
+//         status ? toast.success("Added to favorites successfully.") : toast.warn("Removed from favorites.");
+//       })
+//       .catch((error) => toast.error(error.message));
+//   };
+
+
+
+  // console.log(isFavorite)
+  const authentication = { deleteCount, setDeleteCount, /*isFavorite,*/ formData, handleChange, handleSubmit, count, setCount, reactHandler, jobs, setJobs, fetchData, googleHandler, FBHandler, TwitterHandler, GithubHandler, /*handleFavorite*/ };
 
   return (
     <AuthProvider.Provider value={authentication}>

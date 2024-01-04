@@ -70,7 +70,10 @@ const Favorite = () => {
           </div>
         </div>
       ))) : (
-        <p>No favorites yet!</p>
+        <div style={{display: "flex", flexDirection: 'column', justifyContent: "center", alignItems: "center", width: "100%", gap: "1rem", padding: "2rem"}}>
+          <img className={styles.emptyIcon} src="https://png.pngtree.com/png-vector/20190629/ourlarge/pngtree-empty-box-icon-for-your-project-png-image_1522102.jpg" alt="" />
+          <em style={{fontWeight: 600}}>There Are No Favorite Item Added</em>
+        </div>
       )}
     </div>
     

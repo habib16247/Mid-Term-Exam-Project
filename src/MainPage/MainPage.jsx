@@ -8,7 +8,7 @@ const MainPage = () => {
   return (
     <div>
         <NavBar />
-         <ScrollRestoration />
+        <ScrollRestoration/>
         <div className={styles.outlet}>
             <Outlet/>
             <Footer />

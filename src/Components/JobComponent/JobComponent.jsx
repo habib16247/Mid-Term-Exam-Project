@@ -2,11 +2,11 @@ import React from 'react'
 import styles from "../../Pages/Jobs/Jobs.module.css"
 import { NavLink } from 'react-router-dom'
 
-const JobComponent = ({job, deleteHandler}) => {
+const JobComponent = ({job, deleteHandler, handleFavorite}) => {
 
   return (
-    <NavLink
-    to={`/details/${job.id}`}>
+    // <NavLink
+    // to={`/details/${job.id}`}>
       <div>
         <div className={styles.jobContent}>
           <div className={styles.icons}>
@@ -46,7 +46,7 @@ const JobComponent = ({job, deleteHandler}) => {
             ) : (
               <img
                 title="Favorite"
-                onClick={() => reactHandler(job.id)}
+                // onClick={() => handleFavorite(job)}
                 className={styles.interactionIcon}
                 src="https://img.icons8.com/?size=128&id=80322&format=png"
                 alt=""
@@ -69,7 +69,7 @@ const JobComponent = ({job, deleteHandler}) => {
           </div>
         </div>
     </div>
-    </NavLink>
+    // </NavLink>
   )
 }
 

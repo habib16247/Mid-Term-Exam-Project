@@ -7,17 +7,8 @@ import JobComponent from '../../Components/JobComponent/JobComponent';
 
 const Jobs = () => {
 
-  const { reactHandler, jobs, fetchData} = useContext(AuthProvider);
+  const { reactHandler, jobs, fetchData, handleFavorite} = useContext(AuthProvider);
 
- 
-
-  // const [selectedJobId, setSelectedJobId] = useState(null);
-
-  // const [jobsData, setJobs ] = useState(jobs);
-
-  // const deleteHandler = (id)  => {
-  //   setJobs(prevJobs => prevJobs.filter(job => job.id !== id))
-  // }
 
   const deleteHandler = async (id) => {
     try {
@@ -30,10 +21,6 @@ const Jobs = () => {
   };
 
 
-  // if(isReact) {
-  //   setIsFavorite(jobs)
-  // }
-  // Empty dependency array means this useEffect runs once when the component mounts
 
   return (
     <>
@@ -45,7 +32,7 @@ const Jobs = () => {
       </div>
     <div className={styles.jobContainer}>
       {jobs.map((job) => (
-        <JobComponent key={job.id} job={job} deleteHandler={deleteHandler}/>
+        <JobComponent key={job.id} job={job} deleteHandler={deleteHandler} /*handleFavorite={handleFavorite}*//>
       ))}
     </div>
     </>
