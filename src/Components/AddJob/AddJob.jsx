@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import styles from './AddJob.module.css'; // Import the module CSS
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'; 
 
 const AddJob = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         id: 0,
         title: '',
@@ -32,17 +33,24 @@ const AddJob = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission (e.g., send data to backend)
-        console.log(formData);
+        axios
+            .post("http://localhost:9000/jobs", formData)
+            .then((res) => {
+                console.log(res.data);
+                navigate("/jobs");
+            })
+            .catch((error) => {
+                console.error("Error adding job:", error);
+            });
     };
 
     return (
         <div className={styles.container}>
             <div className={styles.formContainer}>
-            <h2>Add Job</h2>
-            <form onSubmit={handleSubmit}>
+                <h2>Add Job</h2>
+                <form onSubmit={onSubmit}>
                 <div className={styles['form-group']}>
                     <label className={styles.infoName} htmlFor="title">Title:</label>
                     <input
@@ -129,17 +137,17 @@ const AddJob = () => {
                         required
                     />
                 </div>
-                <button className={styles.submit} type="submit">Submit</button>
-                <div className={styles.btnsBack}>
-                    <button onClick={() => navigate(-1)}>
-                        Go Back
-                    </button>
-                    <button  onClick={() => navigate("/")}>
-                        Go Home
-                    </button>
-                </div>
-            </form>
-        </div>
+                    <button className={styles.submit} type="submit">Submit</button>
+                    <div className={styles.btnsBack}>
+                        <button onClick={() => navigate(-1)}>
+                            Go Back
+                        </button>
+                        <button onClick={() => navigate("/")}>
+                            Go Home
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

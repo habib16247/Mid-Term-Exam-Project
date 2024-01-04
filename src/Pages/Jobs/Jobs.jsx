@@ -38,7 +38,7 @@ const Jobs = () => {
   return (
     <>
     <div className={styles.aboutHero}>
-          <h1 className={styles.directPath}><NavLink to="/" style={{color: "rgb(255, 147, 7)"}}>Home </NavLink>/ Jobs <br /><br /><br /><br />
+          <h1 className={styles.directPath}><NavLink to="/" style={{color: "rgb(255, 147, 7)"}}>Home </NavLink> {" "}{" "}{" "}{" "}{" "}{" "}{" "}{" "}{" "}{" "}{" "}{" "}Jobs <br /><br /><br /><br />
           <NavLink to="/addjob" style={{color: "rgb(255, 147, 7)"}}>Add Jobs</NavLink>
           </h1>
           

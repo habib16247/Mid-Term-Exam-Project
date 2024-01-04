@@ -1,3 +1,9 @@
+
+.contactContainer {
+    background-color: #005050;
+    padding-bottom: 5rem;
+}
+
 .contactHero {
     background-image: url("https://as1.ftcdn.net/v2/jpg/03/53/28/08/1000_F_353280884_oyeOLzk0EyvfC4pvixbvcfA4s745SaX6.jpg");
     background-repeat: no-repeat;
@@ -20,3 +26,81 @@
     color: aliceblue;
     text-decoration: underline;
 }
+
+
+/* ContactInfo.module.css */
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    background-color: #cc2424;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contactHead {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.infoTitle {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #000000;
+    font-family: FiraSans2;
+}
+
+.infoTitle {
+    font-weight: 600;
+    color: #000000;
+}
+
+.infoLink {
+    color: #d6dee6;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.infoLink:hover {
+    color: #0056b3;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .column {
+        padding: 15px;
+    }
+
+    .contactHead {
+        font-size: 1.2rem;
+    }
+
+    .infoTitle {
+        font-size: 0.9rem;
+    }
+}
+
+.card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #1964d418;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      margin: 15px;
+      padding: 15px;
+    }
+  }
+  
