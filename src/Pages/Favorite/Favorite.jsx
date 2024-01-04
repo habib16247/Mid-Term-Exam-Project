@@ -22,7 +22,7 @@ const Favorite = () => {
   return (
     <>
     <div className={styles.favoriteHero}>
-          <h1 className={styles.directPath}><NavLink to="/"  style={{color: "rgb(255, 147, 7)"}}>Home </NavLink>/ About</h1>
+          <h1 className={styles.directPath}><NavLink to="/"  style={{color: "rgb(255, 147, 7)"}}>Home </NavLink>/ Favorite</h1>
       </div>
     <div className={styles.jobContainer}>
       {isFavorite ? (

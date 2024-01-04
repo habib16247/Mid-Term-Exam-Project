@@ -11,6 +11,7 @@ import Signin from './../Pages/Profile/Signin';
 import NotFound from '../Pages/NotFound/NotFound';
 import DetailsModal from '../Pages/Jobs/DetailsModal';
 import axios from 'axios';
+import AddJob from '../Components/AddJob/AddJob';
 
 const Router = createBrowserRouter([
     {
@@ -42,7 +43,10 @@ const Router = createBrowserRouter([
                 element: <Favorite />,
                 loader: ({params}) =>  fetch(`http://localhost:9000/jobs/${params.id}`)
             },
-            
+            {
+                path: "/addjob",
+                element: <AddJob />
+            },
         ]
     },
   
